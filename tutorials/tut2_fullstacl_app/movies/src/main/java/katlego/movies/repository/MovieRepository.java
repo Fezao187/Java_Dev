@@ -1,5 +1,6 @@
-package katlego.movies;
+package katlego.movies.repository;
 
+import katlego.movies.models.Movie;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

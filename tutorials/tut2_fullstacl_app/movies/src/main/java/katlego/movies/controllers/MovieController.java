@@ -1,6 +1,7 @@
-package katlego.movies;
+package katlego.movies.controllers;
 
-import org.bson.types.ObjectId;
+import katlego.movies.service.MovieService;
+import katlego.movies.models.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

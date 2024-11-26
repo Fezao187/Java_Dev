@@ -1,6 +1,7 @@
-package katlego.movies;
+package katlego.movies.service;
 
-import org.bson.types.ObjectId;
+import katlego.movies.repository.MovieRepository;
+import katlego.movies.models.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

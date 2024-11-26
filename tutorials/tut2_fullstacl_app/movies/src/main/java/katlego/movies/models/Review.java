@@ -1,4 +1,4 @@
-package katlego.movies;
+package katlego.movies.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
