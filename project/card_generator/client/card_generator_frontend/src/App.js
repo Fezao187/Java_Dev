@@ -14,7 +14,7 @@ function App() {
     sessionStorage.clear();
     localStorage.clear();
     setIsAuth(false);
-    window.location.pathname = '/login/page';
+    window.location.pathname = '/auth/login';
   }
   return (
     <>
@@ -25,15 +25,16 @@ function App() {
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse id='responsive-navbar-nav'>
               <Nav className='me-auto'>
-                {!isAuth? (
+                {!isAuth ? (
                   <>
                     <Nav.Link href='/auth/login'>Login</Nav.Link>
                     <Nav.Link href='/auth/signup'>Sign Up</Nav.Link>
                   </>
-                ):(
+                ) : (
                   <>
                     <Nav.Link href='/virtual/cards'>Virtual Cards</Nav.Link>
                     <Nav.Link href='/my/cards'>My Cards</Nav.Link>
+                    <Button variant='dark' onClick={signUserOut}>Logout</Button>
                   </>
                 )}
               </Nav>

@@ -18,6 +18,7 @@ import java.util.List;
 description = "Manages virtual card APIs")
 @RestController
 @RequestMapping("/virtual/card")
+@CrossOrigin(origins = "*")
 public class VirtualCardController {
     private final VirtualCardService virtualCardService;
 

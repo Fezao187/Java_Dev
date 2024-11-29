@@ -19,6 +19,7 @@ import java.util.List;
 description = "My card management APIs")
 @RestController
 @RequestMapping("/my/card")
+@CrossOrigin(origins = "*")
 public class MyCardController {
     private final MyCardService myCardService;
 
