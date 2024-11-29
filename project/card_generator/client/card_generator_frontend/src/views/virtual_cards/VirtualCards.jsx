@@ -1,6 +1,6 @@
 import React from 'react'
 
-const VirtualCards = () => {
+const VirtualCards = ({ isAuth }) => {
   return (
     <div>VirtualCards</div>
   )

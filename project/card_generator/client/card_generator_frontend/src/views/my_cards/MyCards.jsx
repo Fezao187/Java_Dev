@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MyCards = () => {
+const MyCards = ({ isAuth }) => {
   return (
     <div>MyCards</div>
   )
