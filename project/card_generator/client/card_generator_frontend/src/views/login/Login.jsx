@@ -35,7 +35,7 @@ const Login = ({ setIsAuth }) => {
   }
   return (
     <Form>
-      <hw>Login</hw>
+      <h1>Login</h1>
       <FloatingLabel controlId="floatingInput" label="Username" className="mb-3">
         <Form.Control type="username" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)} required />
       </FloatingLabel>

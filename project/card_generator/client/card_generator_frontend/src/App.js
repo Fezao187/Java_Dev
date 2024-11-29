@@ -8,6 +8,7 @@ import Signup from './views/sign_up/Signup';
 import VirtualCards from './views/virtual_cards/VirtualCards';
 import EditCard from './views/my_cards/EditCard';
 import Home from './views/home/Home';
+import CreateCard from './views/virtual_cards/CreateCard';
 
 function App() {
   const [isAuth, setIsAuth] = useState(sessionStorage.getItem("isAuth"));
@@ -43,10 +44,11 @@ function App() {
           </Container>
         </Navbar>
         <Routes>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/' element={<Home />} />
           <Route path='/auth/login' element={<Login setIsAuth={setIsAuth} />} />
           <Route path='/auth/signup' element={<Signup />} />
           <Route path='/virtual/cards' element={<VirtualCards isAuth={isAuth} />} />
+          <Route path='/virtual/cards/create' element={<CreateCard />} />
           <Route path='/my/cards' element={<MyCards isAuth={isAuth} />} />
           <Route path='/myCards/edit/:id' element={<EditCard />} />
         </Routes>
