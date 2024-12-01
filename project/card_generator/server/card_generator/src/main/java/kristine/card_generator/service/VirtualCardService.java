@@ -37,10 +37,10 @@ public class VirtualCardService {
         String username = jwtService.extractUsername(filteredToken);
 
         User user = userRepository.findByUsername(username).orElseThrow();
-        User newUser = new User(user.getId(),
-                user.getUsername(),
-                user.getEmail(),
-                user.getPassword());
+//        User newUser = new User(user.getId(),
+//                user.getUsername(),
+//                user.getEmail(),
+//                user.getPassword());
         try {
             if(request.getName()==null) {
                 return new VirtualCardResponse("Please enter card name!");
@@ -50,7 +50,7 @@ public class VirtualCardService {
             virtualCard.setCardNumber(generateCard.genCardNum(16));
             virtualCard.setCvv(generateCard.genCvvNum(3));
             virtualCard.setExpiryDate(generateCard.genDate());
-            virtualCard.setUser(newUser);
+            virtualCard.setUser(user);
         }catch (Exception e) {
             return new VirtualCardResponse("An error occured! Please try again!");
         }
@@ -64,14 +64,14 @@ public class VirtualCardService {
         if(virtualCard == null){
             return new VirtualCardResponse("Virtual Card Not Found!");
         }
-        VirtualCard newVirtualCard = new VirtualCard(
-                virtualCard.getId(),
-                virtualCard.getName(),
-                virtualCard.getCardNumber(),
-                virtualCard.getCvv(),
-                virtualCard.getExpiryDate()
-        );
-        return new VirtualCardResponse(newVirtualCard);
+//        VirtualCard newVirtualCard = new VirtualCard(
+//                virtualCard.getId(),
+//                virtualCard.getName(),
+//                virtualCard.getCardNumber(),
+//                virtualCard.getCvv(),
+//                virtualCard.getExpiryDate()
+//        );
+        return new VirtualCardResponse(virtualCard);
    }
 
    public List<VirtualCard> getMyVirtualCards(String token){
@@ -97,13 +97,13 @@ public class VirtualCardService {
        }catch (Exception e) {
            return new VirtualCardResponse("An error occured! Please try again!");
        }
-       VirtualCard newVirtualCard = new VirtualCard(
-               virtualCard.getId(),
-               virtualCard.getName(),
-               virtualCard.getCardNumber(),
-               virtualCard.getCvv(),
-               virtualCard.getExpiryDate()
-       );
-       return new VirtualCardResponse(newVirtualCard, "Card Deleted successfully!");
+//       VirtualCard newVirtualCard = new VirtualCard(
+//               virtualCard.getId(),
+//               virtualCard.getName(),
+//               virtualCard.getCardNumber(),
+//               virtualCard.getCvv(),
+//               virtualCard.getExpiryDate()
+//       );
+       return new VirtualCardResponse(virtualCard, "Card Deleted successfully!");
    }
 }

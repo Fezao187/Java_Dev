@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import api from '../../api/axiosConfig';
 import Card from '../../components/Card';
 import { Button } from 'react-bootstrap';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const VirtualCards = ({ isAuth }) => {
   const [token, setToken] = useState(sessionStorage.getItem("token"));
@@ -25,7 +25,7 @@ const VirtualCards = ({ isAuth }) => {
     getVirtualCards();
   }, []);
 
-  const createCard = async ()=>{
+  const createCard = async () => {
     navigate("/virtual/cards/create");
   }
   return (

@@ -10,16 +10,19 @@ const CreateCard = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { data } = await api.get("/virtual/card/create",
+        const dataa = await api.post("/virtual/card/create",
             {
-                name: name
+                name
             },
             {
-                'authorization': `Bearer ${token}`,
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                headers: {
+                    'authorization': `Bearer ${token}`,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
             }
         );
+        console.log(dataa);
         navigate("/virtual/cards");
     }
     return (
@@ -27,7 +30,7 @@ const CreateCard = () => {
             <Form>
                 <h1>Add card name</h1>
                 <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
-                    <Form.Control type="name" placeholder="Enter card name" value={name} onChange={(e) => setName(e.target.value)} required />
+                    <Form.Control type="text" placeholder="Enter card name" value={name} onChange={(e) => setName(e.target.value)} required />
                 </FloatingLabel>
                 <Button variant="outline-primary" type="submit" onClick={handleSubmit}>
                     Submit

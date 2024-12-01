@@ -33,7 +33,7 @@ public class VirtualCardController {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = VirtualCard.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
-    @GetMapping("/create")
+    @PostMapping("/create")
     public ResponseEntity<VirtualCardResponse> createCard(
             @RequestHeader(name="Authorization") String token,
             @RequestBody VirtualCard virtualCard) {

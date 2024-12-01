@@ -45,16 +45,16 @@ public class MyCardService {
         String username = jwtService.extractUsername(filteredToken);
 
         User user = userRepository.findByUsername(username).orElseThrow();
-        User newUser = new User(user.getId(),
-                user.getUsername(),
-                user.getEmail(),
-                user.getPassword());
+//        User newUser = new User(user.getId(),
+//                user.getUsername(),
+//                user.getEmail(),
+//                user.getPassword());
         try {
             myCard.setName(request.getName());
             myCard.setCardNumber(request.getCardNumber());
             myCard.setCvv(request.getCvv());
             myCard.setExpiryDate(request.getExpiryDate());
-            myCard.setUser(newUser);
+            myCard.setUser(user);
             myCardRepository.save(myCard);
         }catch (Exception e){
             return new MyCardResponse("Something went wrong!");
@@ -72,15 +72,15 @@ public class MyCardService {
             return new MyCardResponse("Card not found! Please try again!");
         }
 
-        MyCard newMyCard = new MyCard(
-                myCard.getId(),
-                myCard.getName(),
-                myCard.getCardNumber(),
-                myCard.getCvv(),
-                myCard.getExpiryDate()
-        );
+//        MyCard newMyCard = new MyCard(
+//                myCard.getId(),
+//                myCard.getName(),
+//                myCard.getCardNumber(),
+//                myCard.getCvv(),
+//                myCard.getExpiryDate()
+//        );
 
-        return new MyCardResponse(newMyCard);
+        return new MyCardResponse(myCard);
     }
 
     public List<MyCard> getMyCards(String token) {
@@ -109,14 +109,14 @@ public class MyCardService {
         }catch (Exception e){
             return new MyCardResponse("Something went wrong!");
         }
-        MyCard newMyCard = new MyCard(
-                myCard.getId(),
-                myCard.getName(),
-                myCard.getCardNumber(),
-                myCard.getCvv(),
-                myCard.getExpiryDate()
-        );
-        return new MyCardResponse(newMyCard, "Card updated successfully!");
+//        MyCard newMyCard = new MyCard(
+//                myCard.getId(),
+//                myCard.getName(),
+//                myCard.getCardNumber(),
+//                myCard.getCvv(),
+//                myCard.getExpiryDate()
+//        );
+        return new MyCardResponse(myCard, "Card updated successfully!");
     }
 
     public MyCardResponse deleteCard(Integer cardId) {
@@ -132,13 +132,13 @@ public class MyCardService {
         }catch (Exception e){
             return new MyCardResponse("Something went wrong!");
         }
-        MyCard newMyCard = new MyCard(
-                myCard.getId(),
-                myCard.getName(),
-                myCard.getCardNumber(),
-                myCard.getCvv(),
-                myCard.getExpiryDate()
-        );
-        return new MyCardResponse(newMyCard, "Card deleted successfully!");
+//        MyCard newMyCard = new MyCard(
+//                myCard.getId(),
+//                myCard.getName(),
+//                myCard.getCardNumber(),
+//                myCard.getCvv(),
+//                myCard.getExpiryDate()
+//        );
+        return new MyCardResponse(myCard, "Card deleted successfully!");
     }
 }
