@@ -63,4 +63,4 @@ const CreateCard = () => {
     )
 }
 
-export default CreateCard
+export default CreateCard;

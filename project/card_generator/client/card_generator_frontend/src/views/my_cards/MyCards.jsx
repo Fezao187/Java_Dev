@@ -10,6 +10,11 @@ const MyCards = ({ isAuth }) => {
   const [cardList, setCardList] = useState([]);
   let navigate = useNavigate();
   useEffect(() => {
+    if (!isAuth) {
+      navigate("/auth/login");
+    }
+  });
+  useEffect(() => {
     const getMyCards = async () => {
       const { data } = await api.get("/my/card/all", {
         headers: {

@@ -8,6 +8,11 @@ const VirtualCards = ({ isAuth }) => {
   const [cardList, setCardList] = useState([]);
   let navigate = useNavigate();
   useEffect(() => {
+    if (!isAuth) {
+      navigate("/auth/login");
+    }
+  });
+  useEffect(() => {
     const getVirtualCards = async () => {
       const { data } = await api.get("/virtual/card/all", {
         headers: {
@@ -24,7 +29,7 @@ const VirtualCards = ({ isAuth }) => {
   }, []);
   const createCard = async () => {
     navigate("/virtual/cards/create");
-}
+  }
   return (
     <div>
       <Button variant='success' onClick={createCard}>Create Card</Button>

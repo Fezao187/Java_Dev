@@ -51,7 +51,7 @@ function App() {
           <Route path='/virtual/cards' element={<VirtualCards isAuth={isAuth} />} />
           <Route path='/virtual/cards/create' element={<CreateVCard />} />
           <Route path='/my/cards' element={<MyCards isAuth={isAuth} />} />
-          <Route path='/myCards/edit' element={<EditCard />} />
+          <Route path='/myCards/edit/:id' element={<EditCard />} />
           <Route path='/my/Cards/create' element={<CreateCard />} />
         </Routes>
       </Router>
