@@ -8,7 +8,8 @@ import Signup from './views/sign_up/Signup';
 import VirtualCards from './views/virtual_cards/VirtualCards';
 import EditCard from './views/my_cards/EditCard';
 import Home from './views/home/Home';
-import CreateCard from './views/virtual_cards/CreateCard';
+import CreateVCard from './views/virtual_cards/CreateVCard';
+import CreateCard from './views/my_cards/CreateCard';
 
 function App() {
   const [isAuth, setIsAuth] = useState(sessionStorage.getItem("isAuth"));
@@ -48,9 +49,10 @@ function App() {
           <Route path='/auth/login' element={<Login setIsAuth={setIsAuth} />} />
           <Route path='/auth/signup' element={<Signup />} />
           <Route path='/virtual/cards' element={<VirtualCards isAuth={isAuth} />} />
-          <Route path='/virtual/cards/create' element={<CreateCard />} />
+          <Route path='/virtual/cards/create' element={<CreateVCard />} />
           <Route path='/my/cards' element={<MyCards isAuth={isAuth} />} />
           <Route path='/myCards/edit/:id' element={<EditCard />} />
+          <Route path='/my/Cards/create' element={<CreateCard />} />
         </Routes>
       </Router>
     </>
