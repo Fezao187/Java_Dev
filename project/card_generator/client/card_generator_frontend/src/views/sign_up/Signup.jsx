@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, FloatingLabel, Alert } from "react-bootstrap";
 import api from '../../api/axiosConfig';
 import { useNavigate } from "react-router-dom";
+import './signup.css';
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -32,7 +33,8 @@ const Signup = () => {
     }
   }
   return (
-    <Form>
+    <div className="resizeDiv">
+    <Form className="resizeForm">
       <h1>Sign Up</h1>
       <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
         <Form.Control type="text" placeholder="Enter your name" onChange={(e) => setName(e.target.value)} required />
@@ -52,6 +54,7 @@ const Signup = () => {
         Submit
       </Button>
     </Form>
+    </div>
   )
 }
 

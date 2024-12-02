@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import api from '../../api/axiosConfig';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Form, FloatingLabel, Alert } from "react-bootstrap";
+import './myCards.css';
 
 const EditCard = () => {
   const [token, setToken] = useState(sessionStorage.getItem("token"));
@@ -39,8 +40,8 @@ const EditCard = () => {
     }
   }
   return (
-    <div>
-      <Form>
+    <div className='resizeDiv'>
+      <Form className='resizeForm'>
         <h1>Edit Card</h1>
         <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
           <Form.Control type="name" placeholder="Enter name on card" value={name} onChange={(e) => setName(e.target.value)} required />

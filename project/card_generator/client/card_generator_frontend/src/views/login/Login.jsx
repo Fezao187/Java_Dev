@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, FloatingLabel, Alert } from "react-bootstrap";
 import api from '../../api/axiosConfig';
 import { useNavigate } from 'react-router-dom';
+import './login.css';
 
 const Login = ({ setIsAuth }) => {
   const [username, setUsername] = useState("");
@@ -34,7 +35,8 @@ const Login = ({ setIsAuth }) => {
     }
   }
   return (
-    <Form>
+    <div className='resizeDiv'>
+    <Form className='resizeForm'>
       <h1>Login</h1>
       <FloatingLabel controlId="floatingInput" label="Username" className="mb-3">
         <Form.Control type="username" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)} required />
@@ -48,6 +50,7 @@ const Login = ({ setIsAuth }) => {
         Submit
       </Button>
     </Form>
+    </div>
   )
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import api from '../../api/axiosConfig';
 import { Button, Form, FloatingLabel } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import './virtualCards.css';
 
 const CreateCard = () => {
     const [name, setName] = useState("");
@@ -26,8 +27,8 @@ const CreateCard = () => {
         navigate("/virtual/cards");
     }
     return (
-        <div>
-            <Form>
+        <div className='resizeDiv'>
+            <Form className='resizeForm'>
                 <h1>Add card name</h1>
                 <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
                     <Form.Control type="text" placeholder="Enter card name" value={name} onChange={(e) => setName(e.target.value)} required />

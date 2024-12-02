@@ -3,7 +3,7 @@ import api from '../../api/axiosConfig';
 import { useState } from 'react';
 import Card from '../../components/Card';
 import { useNavigate } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Row } from 'react-bootstrap';
 
 const MyCards = ({ isAuth }) => {
   const [token, setToken] = useState(sessionStorage.getItem("token"));
@@ -35,11 +35,13 @@ const MyCards = ({ isAuth }) => {
   return (
     <div>
       <Button variant='success' onClick={addCard}>Add Card</Button>
-      {cardList?.map((card) => {
-        return (
-          <Card card={card} isVcard={false} />
-        )
-      })}
+      <Row>
+        {cardList?.map((card) => {
+          return (
+            <Card card={card} isVcard={false} />
+          )
+        })}
+      </Row>
     </div>
   )
 }

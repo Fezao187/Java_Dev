@@ -1,0 +1,12 @@
+.resizeDiv{
+    margin: auto;
+    height: 400px;
+    width: 500px;
+    border: 1px solid black;
+}
+
+.resizeForm{
+    height: 400px;
+    width: 400px;
+    margin: auto;
+}
