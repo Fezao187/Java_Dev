@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import kristine.card_generator.models.entities.MyCard;
 import kristine.card_generator.models.responses.MyCardResponse;
@@ -34,6 +35,7 @@ public class MyCardController {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = MyCard.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+    @SecurityRequirement(name="Bearer Authentication")
     @PostMapping("/create")
     public ResponseEntity<MyCardResponse> createCard(
             @RequestHeader(name="Authorization") String token,
@@ -50,6 +52,7 @@ public class MyCardController {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = MyCard.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+    @SecurityRequirement(name="Bearer Authentication")
     @GetMapping("/all")
     public ResponseEntity<List<MyCard>> getAllCards(
             @RequestHeader(name="Authorization") String token
@@ -65,6 +68,7 @@ public class MyCardController {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = MyCard.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+    @SecurityRequirement(name="Bearer Authentication")
     @GetMapping("/{id}")
     public ResponseEntity<MyCardResponse> getCardById(
             @PathVariable("id") Integer id
@@ -80,6 +84,7 @@ public class MyCardController {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = MyCard.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+    @SecurityRequirement(name="Bearer Authentication")
     @PutMapping("/{id}")
     public ResponseEntity<MyCardResponse> updateCard(
             @PathVariable("id") Integer id,
@@ -96,6 +101,7 @@ public class MyCardController {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = MyCard.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+    @SecurityRequirement(name="Bearer Authentication")
     @DeleteMapping("/{id}")
     public ResponseEntity<MyCardResponse> deleteCard(
             @PathVariable Integer id

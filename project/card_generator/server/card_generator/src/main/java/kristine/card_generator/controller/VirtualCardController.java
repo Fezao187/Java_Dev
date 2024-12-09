@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import kristine.card_generator.models.entities.VirtualCard;
 import kristine.card_generator.models.responses.VirtualCardResponse;
@@ -33,6 +34,7 @@ public class VirtualCardController {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = VirtualCard.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+    @SecurityRequirement(name="Bearer Authentication")
     @PostMapping("/create")
     public ResponseEntity<VirtualCardResponse> createCard(
             @RequestHeader(name="Authorization") String token,
@@ -48,6 +50,7 @@ public class VirtualCardController {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = VirtualCard.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+    @SecurityRequirement(name="Bearer Authentication")
     @GetMapping("/{id}")
     public ResponseEntity<VirtualCardResponse> getCard(
             @PathVariable("id") Integer id){
@@ -62,6 +65,7 @@ public class VirtualCardController {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = VirtualCard.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+    @SecurityRequirement(name="Bearer Authentication")
     @GetMapping("/all")
     public ResponseEntity<List<VirtualCard>> getAllCards(
             @RequestHeader (name="Authorization") String token
@@ -77,6 +81,7 @@ public class VirtualCardController {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = VirtualCard.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+    @SecurityRequirement(name="Bearer Authentication")
     @DeleteMapping("/{id}")
     public ResponseEntity<VirtualCardResponse> deleteCard(
             @PathVariable("id") Integer id){
